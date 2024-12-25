@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helium10 数据分析平台</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Helium10 数据分析平台</h1>
+            <nav class="nav">
+                <div class="dropdown">
+                    <button id="loginBtn" class="btn">登录</button>
+                    <div class="dropdown-content">
+                        <a href="#" onclick="logout()">退出登录</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+<div style="
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100px;
+    background-color: #f5f5f5;
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 8px;
+">
+    <h2 style="
+        text-align: center;
+        color: #333;
+        font-size: 20px;
+        margin: 0;
+        padding: 10px;
+    ">公告:需要充值或者续费官网订阅的,请联系:chihuodidongtian 有优惠</h2>
+</div>
+
+    <!-- 主要内容区 -->
+    <main class="main">
+        <div class="container">
+            <!-- 文件上传区域 -->
+            <section class="upload-section">
+                <h2>数据文件上传</h2>
+                <div class="upload-box">
+                    <input type="file" id="fileInput" accept=".csv,.xlsx,.xls" class="file-input">
+                    <label for="fileInput" class="upload-label">
+                        选择文件（仅支持Helium10导出的XLSX格式）
+                    </label>
+                </div>
+            </section>
+
+       
+
+            <!-- 数据展示区域 -->
+            <section class="chart-section">
+                <h2>数据分析结果</h2>
+                     <p></p>
+                <div id="chartContainer" class="chart-container">
+                    <!-- 图表将在这里显示 -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 登录模态框 -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>用户登录</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginUsername">用户名：</label>
+                    <input type="text" id="loginUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">密码：</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">登录</button>
+                    <button type="button" class="btn btn-link" id="showRegister">注册新账号</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 注册模态框 -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>用户注册</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerUsername">用户名：</label>
+                    <input type="text" id="registerUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">邮箱：</label>
+                    <input type="email" id="registerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">密码：</label>
+                    <input type="password" id="registerPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">确认密码：</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">注册</button>
+                    <button type="button" class="btn btn-link" id="showLogin">返回登录</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 
